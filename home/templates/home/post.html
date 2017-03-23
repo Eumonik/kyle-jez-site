@@ -1,0 +1,22 @@
+{% extends 'home/blog_base.html' %}
+
+
+{% block content %}
+<div class="container-fluid">
+			<img src="{{post.image.url}}" class="img-circle pic">
+			<h2>{{post.title}}</h2>
+			<p>{{post.posted}}</p>
+			<h4>{{post.description}}</h4>
+			<div class="shmow cloudy" style="display:inline-block;">
+				<h5><a href="/blog/categories/"><i class="fa fa-folder" aria-hidden="true"></i>Category:</a>
+					<a href="/blog/categories/{{post.category}}">{{post.category}}</h5></a>
+				<h5><a href="/blog/tags/"><i class="fa fa-tags" aria-hidden="true"></i>Tags:</a>
+				{% for tag in post.tags.all %}
+				<a href="/blog/tags/{{ tag.title }}">{{tag}}</a>
+				{% endfor %}</h5>
+			</div>
+			<p>{{post.body|safe}}</p>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends 'home/blog_base.html' %}
+
+    {% block content %}
+
+          {% if posts %}
+            {% for post in posts %}
+            <a href="{{post.slug}}"><img src="{{post.image.url}}" class="img-circle pic">
+            <h3><a href="{{post.slug}}">{{post.title}}</a></h3>
+            <p><time datetime="{{post.posted|date:"c"}}">{{post.posted|date}}</time></p>
+            <h4>{{post.description}}</h4>
+            <br>
+            <br>
+            {% endfor %}
+          {% else %}
+          <p>It seems that Kyle has some work to do.</p>
+          {% endif %}
+
+    {% endblock %}

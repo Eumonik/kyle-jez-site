@@ -1,0 +1,52 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="author" content="Kyle Jezwinski">
+<link rel="#" href="../../favicon.ico">
+<title>Kyle Jezwinski</title>
+<link href="{% static 'home/css/bootstrap.min.css' %}" rel="stylesheet">
+<link href="{% static 'home/css/custom2.css' %}" rel="stylesheet">
+
+<!--  <link href="{% static 'home/css/ie10-viewport-bug-workaround.css' %}" rel="stylesheet"> -->
+</head>
+<body>
+
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#Jezbar" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#home">Kyle Jezwinski</a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="Jezbar">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#blog">Blog</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+<div id="home" class="container-fluid text-center">
+<img src="{% static 'home/img/jez_logo_main.png' %}" class="img-responsive kj" alt="Kyle Jezwinski">
+</div>
+
+<footer class="footer container-fluid text-center">
+<p>&copy;{% now "Y" %} Kyle Jezwinski</p>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="{% static 'home/js/bootstrap.min.js' %}"></script>
+
+</body>
+</html>

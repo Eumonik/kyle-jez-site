@@ -1,0 +1,19 @@
+{% extends 'home/blog_base.html' %}
+
+{% block content %}
+
+			<div class="title"><h2>Tag: {{ tag.title }}</h2></div>
+			{% if posts %}
+        {% for post in posts %}
+				<div class="posts">
+        <a href="/blog/{{post.slug}}"><img src="{{post.image.url}}" class="img-circle pic">
+        <h3><a href="/blog/{{post.slug}}">{{post.title}}</a></h3>
+        <p><time datetime="{{post.posted|date:"c"}}">{{post.posted|date}}</time></p>
+        <h4>{{post.description}}</h4>
+				</div>
+        {% endfor %}
+			{% else %}
+			<p>Ah, the lonely tag, postless and void of content.</p>
+      {% endif %}
+
+{% endblock %}

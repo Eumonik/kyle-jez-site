@@ -1,0 +1,30 @@
+{% extends 'home/blog_base.html' %}
+
+{% block content %}
+    <h2>Search</h2>
+
+        {% if query %}
+            <h3>Results for: {{ query }}</h3>
+
+            {% for result in page.object_list %}
+                    <a href="/blog/{{ result.object.slug }}"><img src="{{ result.object.image.url}}" class="img-circle pic"></a>
+                    <h3><a href="/blog/{{ result.object.slug }}">{{ result.object.title }}</a></h3>
+                    <p><time datetime="{{post.posted|date:"c"}}">{{result.object.posted|date}}</time></p>
+                    <h4>{{result.object.description}}</h4>
+                    <br>
+            {% empty %}
+                <p>No results found.</p>
+            {% endfor %}
+
+            {% if page.has_previous or page.has_next %}
+                <div>
+                    {% if page.has_previous %}<a href="?q={{ query }}&amp;page={{ page.previous_page_number }}">{% endif %}&laquo; Previous{% if page.has_previous %}</a>{% endif %}
+                    |
+                    {% if page.has_next %}<a href="?q={{ query }}&amp;page={{ page.next_page_number }}">{% endif %}Next &raquo;{% if page.has_next %}</a>{% endif %}
+                </div>
+            {% endif %}
+        {% else %}
+      <h4>Once there was an lonely search box with nothing to query.</h4>
+        {% endif %}
+
+{% endblock %}

@@ -1,0 +1,138 @@
+    {% load static %}
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Kyle Jezwinski">
+    <link rel="#" href="../../favicon.ico">
+    <title>Kyle Jezwinski</title>
+    <link href="{% static 'home/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'home/css/bootstrap.min.css.map' %}" rel="stylesheet">
+    <link href="{% static 'home/css/custom.css' %}" rel="stylesheet">
+    <link href="{% static 'home/css/font-awesome.min.css' %}" rel="stylesheet">
+
+
+<!--  <link href="{% static 'home/css/ie10-viewport-bug-workaround.css' %}" rel="stylesheet"> -->
+</head>
+<body>
+
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#Jezbar" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#home">Kyle Jezwinski</a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="Jezbar">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="#home"><i class="fa fa-image fa-lg" aria-hidden="true"></i>Home</a></li>
+          <li><a href="#blog"><i class="fa fa-quote-left fa-lg" aria-hidden="true"></i>Blog</a></li>
+          <li><a href="#contact"><i class="fa fa-envelope-o fa-lg" aria-hidden="true"></i>Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div id="home" class="container-fluid text-center bg-1">
+    <img src="{% static 'home/img/jez_logo_main.png' %}" class="img-responsive kj" alt="Kyle Jezwinski">
+    <img src="{% static 'home/img/pp_banner.png' %}" alt="Banner" class="img-responsive center-block banner">
+    <p>Colorado Born, Record Scratching, Beat Making, Python Programming, Home Brewing, Banjo Playing Dude</p>
+    <div class="container-fluid text-center bg-1">
+      <a href="https://www.twitter.com/kylejez" target="_blank"><i class="fa fa-twitter fa-3x" aria-hidden="true"></i></a>
+      <a href="https://www.soundcloud.com/jezwinski" target="_blank"><i class="fa fa-soundcloud fa-3x" aria-hidden="true"></i></a>
+      <a href="https://www.linkedin.com/in/kylejezwinski" target="_blank"><i class="fa fa-linkedin fa-3x" aria-hidden="true"></i></a>
+      <a href="https://www.github.com/kylejez" target="_blank"><i class="fa fa-github fa-3x" aria-hidden="true"></i></a>
+      <a href="https://www.youtube.com/channel/UCJIJG_ZfWRRG1BNJQp-4Ayg" target="_blank"><i class="fa fa-youtube fa-3x" aria-hidden="true"></i></a>
+      <div class="hidden-lg shmow arrow">
+        <a href="#blog"><i class="fa fa-arrow-circle-down fa-3x" aria-hidden="true"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <div id="blog" class="container-fluid text-center shmow stretch">
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3">
+        <a href="/blog"><h1><i class="fa fa-quote-left" aria-hidden="true"></i>Blog</h1></a><br>
+        {% if posts %}
+          {% for post in posts %}
+            <a href="blog/{{post.slug}}"><img src="{{post.image.url}}" class="img-circle pic"></a>
+            <h3><a href=blog/{{post.slug}}>{{post.title}}</a></h3>
+            <p><time datetime="{{post.created|date:"c"}}">{{post.posted|date}}</time>
+            </p><h4>{{post.description}}</h4>
+          <br>
+          {% endfor %}
+        {% else %}
+          <h3>There are no posts.</h3>
+        {% endif %}
+        <a href="/blog"><h4>Previous Posts<i class="fa fa-quote-right" aria-hidden="true"></i></h4></a>
+      </div>
+    </div>
+  </div>
+
+  <div id="contact" class="container-fluid text-center shmow stretch">
+    <a href="/contact/"><h1><i class="fa fa-envelope-o" aria-hidden="true"></i>Contact</h1></a>
+    <div class="contact" style="padding-bottom:8rem;padding-top:3rem;">
+      <a href="/contact/"><h3>Send me a message</h3><i class="fa fa-comment fa-4x" aria-hidden="true"></i></a>
+    </div>
+
+    <footer class="footer container-fluid bg-4 text-center">
+      <div class="container-fluid">
+        <a href="https://www.twitter.com/kylejez" target="_blank"><i class="fa fa-twitter fa-2x" aria-hidden="true"></i></a>
+        <a href="https://www.soundcloud.com/jezwinski" target="_blank"><i class="fa fa-soundcloud fa-2x" aria-hidden="true"></i></a>
+        <a href="https://www.linkedin.com/in/kylejezwinski" target="_blank"><i class="fa fa-linkedin fa-2x" aria-hidden="true"></i></a>
+        <a href="https://www.github.com/kylejez" target="_blank"><i class="fa fa-github fa-2x" aria-hidden="true"></i></a>
+        <a href="https://www.youtube.com/channel/UCJIJG_ZfWRRG1BNJQp-4Ayg" target="_blank"><i class="fa fa-youtube fa-2x" aria-hidden="true"></i></a>
+      </div>
+    <p>&copy;{% now "Y" %} Kyle Jezwinski</p>
+
+  </div>
+
+
+<a href="javascript:" id="return-to-top"><i class="fa fa-chevron-up fa-3x"></i></a>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="{% static 'home/js/bootstrap.min.js' %}"></script>
+<script>
+  $('a[href*="#"]:not([href="#"])').click(function() {
+    if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
+      var target = $(this.hash);
+      target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+      if (target.length) {
+        $('html, body').animate({
+          scrollTop: target.offset().top
+        }, 577);
+        return false;
+      }
+    }
+  });
+  $(function() {
+      $('.nav a').on('click', function(){
+          if($('.navbar-toggle').css('display') !='none'){
+              $(".navbar-toggle").trigger( "click" );
+          }
+      });
+  });
+  $(window).scroll(function() {
+      if ($(this).scrollTop() >= 450) {        // If page is scrolled more than 50px
+          $('#return-to-top').fadeIn(200);    // Fade in the arrow
+      } else {
+          $('#return-to-top').fadeOut(200);   // Else fade out the arrow
+      }
+  });
+  $('#return-to-top').click(function() {      // When arrow is clicked
+      $('body,html').animate({
+          scrollTop : 0                       // Scroll to top of body
+      }, 500);
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,113 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="author" content="Kyle Jezwinski">
+<link rel="#" href="../../favicon.ico">
+<title>KJ | Blog</title>
+<link href="{% static 'home/css/bootstrap.min.css' %}" rel="stylesheet">
+<link href="{% static 'home/css/bootstrap.min.css.map' %}" rel="stylesheet">
+<link href="{% static 'home/css/custom2.css' %}" rel="stylesheet">
+<link href="{% static 'home/css/font-awesome.min.css' %}" rel="stylesheet">
+</head>
+<body>
+
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#Jezbar" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/"><img src="{% static 'home/img/jez_logo_main.png' %}" class="img-responsive kj" alt="Kyle Jezwinski"></a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="Jezbar">
+        <ul class="nav navbar-nav navbar-right">
+            <form action="/blog/search/" method="get" class="form-inline navbar-form navbar-right hidden-lg">
+              <div class="input-group">
+                <input name="q" type="text" class="form-control" placeholder="Search">
+                  <div class="input-group-addon">
+                    <button type="submit">
+                      <a href="/"><i class="fa fa-search fa-fw" aria-hidden="true"></i></a>
+                    </button>
+                  </div>
+              </div>
+            </form>
+          <li><a href="/"><i class="fa fa-home fa-fw" aria-hidden="true"></i>Home</a></li>
+          <li><a href="/blog"><i class="fa fa-quote-left fa-fw" aria-hidden="true"></i>Blog</a></li>
+          <li><a href="/blog/categories" class="hidden-lg"><i class="fa fa-folder fa-fw" aria-hidden="true"></i>Categories</a></li>
+          <li><a href="/blog/tags" class="hidden-lg"><i class="fa fa-tags fa-fw" aria-hidden="true"></i>Tags</a></li>
+<!---          <li><a href="/blog/archives" class="hidden-lg"><i class="fa fa-archive fa-fw" aria-hidden="true"></i>Archive</a></li>-->
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
+
+  <div class="container-fluid shmow" style="color:#606060">
+    <div class="col-xs-4 visible-lg">
+      <a href = "/blog"><h1>Blog</h1></a>
+        <div class="input-group search col-md-12">
+          <form action="/blog/search/" method="get" class="form-inline">
+            <div class="input-group">
+              <input name="q" type="text" class="form-control" placeholder="Search">
+                <div class="input-group-addon">
+                  <button type="submit">
+                    <a href="/"><i class="fa fa-search fa-fw" aria-hidden="true"></i></a>
+                  </button>
+                </div>
+            </div>
+          </form>
+        </div>
+          <h3><a href = "/blog/categories"><i class="fa fa-folder" aria-hidden="true"></i>Categories</h3></a>
+          <h3><a href = "/blog/tags"><i class="fa fa-tags" aria-hidden="true"></i>Tags</h3></a>
+<!--        <h3><a href = "/blog/archives"><i class="fa fa-archive fa" aria-hidden="true"></i>Archives</h3></a>-->
+      </div>
+
+      <div class="col-sm-8 shmow">
+
+{% block content %}
+{% endblock %}
+
+
+  </div>
+</div>
+
+
+  <footer class="footer container-fluid text-center shmow">
+      <a href="https://www.twitter.com/kylejez" target="_blank"><i class="fa fa-twitter fa-2x" aria-hidden="true"></i></a>
+      <a href="https://www.soundcloud.com/jezwinski" target="_blank"><i class="fa fa-soundcloud fa-2x" aria-hidden="true"></i></a>
+      <a href="https://www.linkedin.com/in/kylejezwinski" target="_blank"><i class="fa fa-linkedin fa-2x" aria-hidden="true"></i></a>
+      <a href="https://www.github.com/kylejez" target="_blank"><i class="fa fa-github fa-2x" aria-hidden="true"></i></a>
+      <a href="https://www.youtube.com/channel/UCJIJG_ZfWRRG1BNJQp-4Ayg" target="_blank"><i class="fa fa-youtube fa-2x" aria-hidden="true"></i></a>
+  <p>&copy;{% now "Y" %} Kyle Jezwinski</p>
+</footer>
+
+  <a href="javascript:" id="return-to-top"><i class="fa fa-chevron-up fa-3x"></i></a>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="{% static 'home/js/bootstrap.min.js' %}"></script>
+  <script>
+    // ===== Scroll to Top ====
+    $(window).scroll(function() {
+        if ($(this).scrollTop() >= 250) {        // If page is scrolled more than 50px
+            $('#return-to-top').fadeIn(200);    // Fade in the arrow
+        } else {
+            $('#return-to-top').fadeOut(200);   // Else fade out the arrow
+        }
+    });
+    $('#return-to-top').click(function() {      // When arrow is clicked
+        $('body,html').animate({
+            scrollTop : 0                       // Scroll to top of body
+        }, 500);
+    });
+  </script>
+</body>
+</html>

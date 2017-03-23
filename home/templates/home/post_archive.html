@@ -1,0 +1,52 @@
+{% extends 'home/blog_base.html' %}
+{% load taggit_templatetags2_tags %}
+
+    {% block content %}
+
+    <div class="container-fluid" style="color:#606060">
+      <div class="row">
+        <div class="col-md-4 visible-lg">
+          <a href = "/blog"><h1>Blog</h1></a>
+          <div class="cloudy">
+            <div class="input-group search col-md-8">
+              <input type="text" class="form-control" placeholder="Search">
+              <span class="input-group-addon">
+                <button type="submit">
+                  <a href="/"><i class="fa fa-search fa-fw" aria-hidden="true"></i></a>
+                </button>
+              </span>
+            </div>
+            <h3><a href = "/blog/categories"><i class="fa fa-folder" aria-hidden="true"></i>Categories</h3></a>
+            <h3><a href = "/blog/tags"><i class="fa fa-tags" aria-hidden="true"></i>Tags</h3></a>
+            <h3><a href = "/blog/archives"><i class="fa fa-archive fa" aria-hidden="true"></i>Archives</h3></a>
+          </div>
+        </div>
+        <div class="col-md-8 shmow">
+          <!--
+            {% regroup posts|dictsortreversed:"posted" by posted|date:"Y" as archive_year %}
+            {% for year in archive_year %}
+            {% regroup posts|dictsortreversed:"posted" by posted|date:"F" as archive_month %}
+            {% for month in archive_month %}
+            <h5>{{ month.grouper }} / {{ year.grouper }}</h5>
+            {% endfor %}
+            {% endfor %}
+
+            
+-->
+    {% for post in latest %}
+      <!--  <h4>{{ year.posted|date:"Y" }}</h4> -->
+        <h3>{{ post.title }} - {{ post.posted|date:"F j, Y" }}</h3>
+    {% endfor %}
+    <p>
+    {% if previous_month %}
+        Previous Month: {{ previous_month|date:"F Y" }}
+    {% endif %}
+    {% if next_month %}
+        Next Month: {{ next_month|date:"F Y" }}
+    {% endif %}
+</p>
+        </div>
+      </div>
+    </div>
+
+    {% endblock %}
