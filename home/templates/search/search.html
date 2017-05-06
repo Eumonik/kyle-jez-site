@@ -7,7 +7,7 @@
             <h3>Results for: {{ query }}</h3>
 
             {% for result in page.object_list %}
-                    <a href="/blog/{{ result.object.slug }}"><img src="{{ result.object.image.url}}" class="img-circle pic"></a>
+                    <a href="/blog/{{ result.object.slug }}"><img src="{{ result.object.image.url}}" class="img-responsive pic_medium"></a>
                     <h3><a href="/blog/{{ result.object.slug }}">{{ result.object.title }}</a></h3>
                     <p><time datetime="{{post.posted|date:"c"}}">{{result.object.posted|date}}</time></p>
                     <h4>{{result.object.description}}</h4>
@@ -24,7 +24,7 @@
                 </div>
             {% endif %}
         {% else %}
-      <h4>Once there was an lonely search box with nothing to query.</h4>
+      <h4>Once there was a lonely search box with nothing to query.</h4>
         {% endif %}
 
 {% endblock %}

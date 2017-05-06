@@ -121,7 +121,7 @@ h1:hover, h3:hover {
 }
 
 .pic {
-    max-width: 10rem;
+    max-width: 100%;
 }
 
 .pic:hover {

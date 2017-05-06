@@ -140,12 +140,17 @@ input:focus{
 }
 /*    color: #7C7C7C; */
 
+/*
 .pic {
-    max-height: 10rem;    padding-left: 1rem;
-    padding-right: 1rem;
+    max-width: 60rem;
+  }
+*/
+
+.pic_medium {
+    max-width: 100%;
   }
 
-.pic:hover {
+.pic_medium:hover {
     box-shadow: 0px 2px 3px #a8a8a8;
 }
 

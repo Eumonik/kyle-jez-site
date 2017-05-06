@@ -7,12 +7,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="Kyle Jezwinski">
-    <link rel="#" href="../../favicon.ico">
     <title>Kyle Jezwinski</title>
     <link href="{% static 'home/css/bootstrap.min.css' %}" rel="stylesheet">
     <link href="{% static 'home/css/bootstrap.min.css.map' %}" rel="stylesheet">
     <link href="{% static 'home/css/custom.css' %}" rel="stylesheet">
     <link href="{% static 'home/css/font-awesome.min.css' %}" rel="stylesheet">
+    <link rel="shortcut icon" href="{% static 'home/img/favicon.ico' %}" type="image/x-icon">
+    <link rel="icon" href="{% static 'home/img/favicon.ico' %}" type="image/x-icon">
 
 
 <!--  <link href="{% static 'home/css/ie10-viewport-bug-workaround.css' %}" rel="stylesheet"> -->
@@ -42,19 +43,23 @@
   </nav>
 
   <div id="home" class="container-fluid text-center bg-1">
-    <img src="{% static 'home/img/jez_logo_main.png' %}" class="img-responsive kj" alt="Kyle Jezwinski">
-    <img src="{% static 'home/img/pp_banner.png' %}" alt="Banner" class="img-responsive center-block banner">
-    <p>Colorado Born, Record Scratching, Beat Making, Python Programming, Home Brewing, Banjo Playing Dude</p>
-    <div class="container-fluid text-center bg-1">
-      <a href="https://www.twitter.com/kylejez" target="_blank"><i class="fa fa-twitter fa-3x" aria-hidden="true"></i></a>
-      <a href="https://www.soundcloud.com/jezwinski" target="_blank"><i class="fa fa-soundcloud fa-3x" aria-hidden="true"></i></a>
-      <a href="https://www.linkedin.com/in/kylejezwinski" target="_blank"><i class="fa fa-linkedin fa-3x" aria-hidden="true"></i></a>
-      <a href="https://www.github.com/kylejez" target="_blank"><i class="fa fa-github fa-3x" aria-hidden="true"></i></a>
-      <a href="https://www.youtube.com/channel/UCJIJG_ZfWRRG1BNJQp-4Ayg" target="_blank"><i class="fa fa-youtube fa-3x" aria-hidden="true"></i></a>
-      <div class="hidden-lg shmow arrow">
-        <a href="#blog"><i class="fa fa-arrow-circle-down fa-3x" aria-hidden="true"></i></a>
-      </div>
-    </div>
+        <img src="{% static 'home/img/jez_logo_main.png' %}" class="img-responsive kj" alt="Kyle Jezwinski">
+        <img src="{% static 'home/img/pp_banner.png' %}" alt="Banner" class="img-responsive center-block banner">
+        <div class="row">
+            <div class="col-md-12 center-block">
+            <h4>Something I built to learn some things and say some things.</h4>
+            </div>
+        </div>
+        <div class="container-fluid text-center bg-1">
+          <a href="https://www.twitter.com/kylejez" target="_blank"><i class="fa fa-twitter fa-3x" aria-hidden="true"></i></a>
+          <a href="https://www.soundcloud.com/jezwinski" target="_blank"><i class="fa fa-soundcloud fa-3x" aria-hidden="true"></i></a>
+          <a href="https://www.linkedin.com/in/kylejezwinski" target="_blank"><i class="fa fa-linkedin fa-3x" aria-hidden="true"></i></a>
+          <a href="https://www.github.com/kylejez" target="_blank"><i class="fa fa-github fa-3x" aria-hidden="true"></i></a>
+          <a href="https://www.youtube.com/channel/UCJIJG_ZfWRRG1BNJQp-4Ayg" target="_blank"><i class="fa fa-youtube fa-3x" aria-hidden="true"></i></a>
+          <div class="hidden-lg shmow arrow">
+            <a href="#blog"><i class="fa fa-arrow-circle-down fa-3x" aria-hidden="true"></i></a>
+          </div>
+        </div>
   </div>
 
   <div id="blog" class="container-fluid text-center shmow stretch">
@@ -63,7 +68,7 @@
         <a href="/blog"><h1><i class="fa fa-quote-left" aria-hidden="true"></i>Blog</h1></a><br>
         {% if posts %}
           {% for post in posts %}
-            <a href="blog/{{post.slug}}"><img src="{{post.image.url}}" class="img-circle pic"></a>
+            <a href="blog/{{post.slug}}"><img src="{{post.image.url}}" class="img-responsive center-block pic"></a>
             <h3><a href=blog/{{post.slug}}>{{post.title}}</a></h3>
             <p><time datetime="{{post.created|date:"c"}}">{{post.posted|date}}</time>
             </p><h4>{{post.description}}</h4>

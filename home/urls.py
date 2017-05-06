@@ -2,12 +2,12 @@ from django.conf.urls import url, include
 from . import views
 from django.conf import settings
 from django.conf.urls.static import static
-from django.views.generic import ListView, DetailView
-from django.views.generic.dates import ArchiveIndexView
+from django.views.generic import TemplateView
 
 from .models import Post, Tag, Category
 
 urlpatterns = [
+    url(r'^robots.txt$', TemplateView.as_view(template_name="home/robots.txt", content_type="text/plain"), name="robots_file"),
     url(r'^$', views.HomeView.as_view(), name = 'home'),
     url(r'^contact/$', views.contact, name = 'contact'),
     url(r'^blog/$', views.PostListView.as_view(), name = 'posts'),

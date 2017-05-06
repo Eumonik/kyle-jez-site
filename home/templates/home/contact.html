@@ -8,12 +8,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="">
 <meta name="author" content="Kyle Jezwinski">
-<link rel="#" href="../../favicon.ico">
 <title>KJ | Blog</title>
 <link href="{% static 'home/css/bootstrap.min.css' %}" rel="stylesheet">
 <link href="{% static 'home/css/bootstrap.min.css.map' %}" rel="stylesheet">
 <link href="{% static 'home/css/custom2.css' %}" rel="stylesheet">
 <link href="{% static 'home/css/font-awesome.min.css' %}" rel="stylesheet">
+<link rel="shortcut icon" href="{% static 'home/img/favicon.ico' %}" type="image/x-icon">
+<link rel="icon" href="{% static 'home/img/favicon.ico' %}" type="image/x-icon">
 </head>
 <body>
 
@@ -57,6 +58,7 @@
   <div class="row">
     <div class="col-md-8 col-md-offset-3">
       <h1 class="shmow">Contact</h1>
+      <p>You possibly will never get a response.</p>
       {% if messages %}
       <div class="messages">
           {% for message in messages %}

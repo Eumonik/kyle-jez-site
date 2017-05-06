@@ -141,8 +141,7 @@ input:focus{
 /*    color: #7C7C7C; */
 
 .pic {
-    max-height: 10rem;    padding-left: 1rem;
-    padding-right: 1rem;
+    max-width: 16rem;
   }
 
 .pic:hover {
